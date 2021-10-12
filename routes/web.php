@@ -1,0 +1,26 @@
+<?php
+
+use App\Http\Controllers\CoffeController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/home',[\App\Http\Controllers\HomeController::class,'index'])->name('home.index');
+
+Route::get('/',[\App\Http\Controllers\CoffeController::class,'index'])->name('coffe.index');
+Route::get('/create', [\App\Http\Controllers\CoffeController::class, 'create'])->name('coffe.create');
+Route::post('/create', [CoffeController::class, 'store'])->name('coffe.store');
+
